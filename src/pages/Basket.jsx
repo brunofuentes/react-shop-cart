@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState, useRef } from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import ShopContext from '../context/ShopContext'
 
@@ -6,8 +6,8 @@ function Basket() {
 	let navigate = useNavigate()
 	let totalPrice = 0
 
-	const { cartItems, setCartItems, orders, setOrders, removeCartItem, updateCartItems, updateOrders, resetCart } = useContext(ShopContext)
-	const [orderName, setOrderName] = useState()
+	const { setOrderName, checkOut, cartItems, changeCartItemQty, orders, removeCartItem, updateCartItems, updateOrders, resetCart } =
+		useContext(ShopContext)
 	const trackOrder = useRef(orders.length)
 
 	useEffect(() => {
@@ -18,34 +18,6 @@ function Basket() {
 			updateCartItems()
 		}
 	})
-
-	const changeItemQty = (qty, item) => {
-		const itemToChange = cartItems.find((x) => x.id === item.id)
-		if (itemToChange) {
-			setCartItems(cartItems.map((x) => (x.id === item.id ? { ...itemToChange, qty: qty } : x)))
-		}
-	}
-
-	const checkOut = () => {
-		if (cartItems.length > 0 && orderName) {
-			setOrders([
-				...orders,
-				{
-					orderId: orders.length > 0 ? orders[orders.length - 1].orderId + 1 : 1,
-					orderName: orderName,
-					totalPrice: totalPrice,
-					items: cartItems,
-				},
-			])
-			alert(`A compra ${orderName} foi finalizada com sucesso!`)
-		} else if (cartItems.length > 0 && !orderName) {
-			alert('Dê um nome a sua cesta de compras antes de finalizar.')
-		}
-	}
-
-	if (cartItems.length > 0) {
-		totalPrice = cartItems.map((x) => x.price * x.qty).reduce((a, b) => a + b, 0)
-	}
 
 	return (
 		<>
@@ -73,7 +45,7 @@ function Basket() {
 											type="number"
 											min="1"
 											defaultValue={item.qty}
-											onChange={(e) => changeItemQty(parseInt(e.target.value), item)}
+											onChange={(e) => changeCartItemQty(parseInt(e.target.value), item)}
 										/>
 									</td>
 									<td className="border-r">{item.name}</td>
