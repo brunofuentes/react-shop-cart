@@ -6,7 +6,7 @@ function Basket() {
 	let navigate = useNavigate()
 	let totalPrice = 0
 
-	const { setOrderName, checkOut, cartItems, changeCartItemQty, orders, removeCartItem, updateCartItems, updateOrders, resetCart } =
+	const { setOrderName, checkOut, cartItems, changeCartItemQty, cartTotalPrice, orders, removeCartItem, updateCartItems, updateOrders, resetCart } =
 		useContext(ShopContext)
 	const trackOrder = useRef(orders.length)
 
@@ -61,7 +61,7 @@ function Basket() {
 						</tbody>
 					</table>
 				</div>
-				<span>Total: R${totalPrice.toFixed(2)}</span>
+				<span>Total: R${cartTotalPrice()}</span>
 				<div>
 					<button disabled={!(cartItems.length > 0)} onClick={() => checkOut()}>
 						Finalizar Compra
