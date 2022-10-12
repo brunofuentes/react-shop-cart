@@ -1,11 +1,11 @@
 import './App.css'
 import Home from './pages/Home'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Basket from './components/Basket'
+import Basket from './pages/Basket'
 import PageLayout from './pages/PageLayout'
 import { ShopProvider } from './context/ShopContext'
 import Admin from './pages/Admin'
-import OrdersList from './components/OrdersList'
+import OrdersList from './pages/OrdersList'
 import OrderComplete from './pages/OrderComplete'
 
 function App() {
