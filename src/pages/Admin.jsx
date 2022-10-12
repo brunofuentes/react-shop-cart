@@ -4,17 +4,12 @@ import AdminProductList from '../components/AdminProductList'
 import ShopContext from '../context/ShopContext'
 
 function Admin() {
-	const { shopItems, setShopItems, updateShopItems } = useContext(ShopContext)
+	const { updateShopItems, adminAddShopItem } = useContext(ShopContext)
 	const { register, handleSubmit } = useForm()
 
 	useEffect(() => {
 		updateShopItems()
 	})
-
-	const addNewShopItem = (item) => {
-		setShopItems([...shopItems, { ...item, qty: 1, id: shopItems[shopItems.length - 1] + 1 }])
-		console.log(shopItems)
-	}
 
 	return (
 		<>
@@ -23,7 +18,7 @@ function Admin() {
 					<a href="/admin">admin</a> {'>'} produtos
 				</p>
 				<div>
-					<form onSubmit={handleSubmit(addNewShopItem)} action="" className="flex p-5">
+					<form onSubmit={handleSubmit(adminAddShopItem)} action="" className="flex p-5">
 						<div className="flex-col flex px-1">
 							<label htmlFor="">Produto</label>
 							<input {...register('name')} type="text" placeholder="Produto" className="border" />
