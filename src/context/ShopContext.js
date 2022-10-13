@@ -12,9 +12,21 @@ export function ShopProvider({ children }) {
 	]
 
 	const [shopItems, setShopItems] = useState(shopItemsLS)
+	const [keyword, setKeyword] = useState('')
 	const [cartItems, setCartItems] = useState(cartItemsLS)
 	const [orderName, setOrderName] = useState()
 	const [orders, setOrders] = useState(ordersLS)
+
+	const filteredShopItems = (input) => {
+		if (input) {
+			const filtered = shopItems.filter(
+				(item) => item.name.toLowerCase().includes(input.toLowerCase()) || item.description.toLowerCase().includes(input.toLowerCase())
+			)
+			return filtered
+		} else {
+			return shopItems
+		}
+	}
 
 	const addItemToCart = (item) => {
 		const exist = cartItems.find((product) => product.id === item.id)
@@ -120,8 +132,11 @@ export function ShopProvider({ children }) {
 	return (
 		<ShopContext.Provider
 			value={{
+				filteredShopItems,
 				shopItems,
 				setShopItems,
+				keyword,
+				setKeyword,
 				addItemToCart,
 				removeCartItem,
 				changeShopItemQty,
