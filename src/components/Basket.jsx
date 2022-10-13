@@ -28,8 +28,8 @@ function Basket() {
 	})
 
 	return (
-		<>
-			<div className="border rounded my-1">
+		<div className="py-5">
+			<div className="border rounded">
 				<input className="p-1 w-full" type="text" placeholder="Nome da Cesta" onChange={(e) => setOrderName(e.target.value)} />
 			</div>
 			<div className="pt-5 pb-3">
@@ -46,11 +46,12 @@ function Basket() {
 							<th className="border-r p-1" width="10%">
 								Valor
 							</th>
+							<th></th>
 						</tr>
 					</thead>
 					<tbody>
 						{cartItems.map((item, index) => (
-							<tr key={index} className="border-b odd:bg-gray-50">
+							<tr key={item} className="border-b odd:bg-gray-50">
 								<td className="border-r px-3 py-1">
 									<div className="rounded border p-1">
 										<input
@@ -85,7 +86,7 @@ function Basket() {
 					Finalizar Compra
 				</button>
 			</div>
-		</>
+		</div>
 	)
 }
 

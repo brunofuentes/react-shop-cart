@@ -12,11 +12,12 @@ function AdminProductList() {
 						<th className="border-r p-1">Produto</th>
 						<th className="border-r p-1 w-2/4">Descrição</th>
 						<th className="border-r p-1">Preço</th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
 					{shopItems.map((item, index) => (
-						<tr key={index} className="border-b hover:bg-yellow-100 odd:bg-gray-50">
+						<tr key={item} className="border-b hover:bg-yellow-100 odd:bg-gray-50">
 							<td className="border-r px-3 py-1">
 								<input
 									className="w-full p-1 bg-inherit"

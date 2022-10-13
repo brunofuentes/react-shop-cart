@@ -14,7 +14,7 @@ function Admin() {
 	})
 
 	return (
-		<div className="flex flex-grow flex-col px-3 py-8">
+		<div className="flex flex-grow flex-col py-3 px-8">
 			<span className="pb-3">
 				<a href="/admin">admin</a> {'>'} {page !== 'orders' ? 'produtos' : 'compras'}
 			</span>

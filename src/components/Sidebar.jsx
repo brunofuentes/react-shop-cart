@@ -11,20 +11,20 @@ function Sidebar() {
 	return (
 		<>
 			{!currentPath.includes('/admin') ? (
-				<div className="flex flex-col border-r w-1/6 py-3">
-					<button className="bg-slate-300 hover:scale-105 hover:bg-slate-400 shadow-sm" onClick={() => navigate('/')}>
+				<div className="flex flex-col border-r w-1/6">
+					<button className="bg-slate-300 hover:scale-105 hover:bg-slate-400 shadow-sm py-3" onClick={() => navigate('/')}>
 						Home
 					</button>
-					<button className="bg-slate-300 hover:scale-105 hover:bg-slate-400 shadow-sm" onClick={() => navigate('/basket')}>
+					<button className="bg-slate-300 hover:scale-105 hover:bg-slate-400 shadow-sm py-3" onClick={() => navigate('/basket')}>
 						Cesta {cartItems.length > 0 && cartItems.length}
 					</button>
 				</div>
 			) : (
-				<div className="flex flex-col border-r w-1/6 py-3">
-					<button className="bg-slate-300 hover:scale-105 hover:bg-slate-400 shadow-sm" onClick={() => navigate('/admin')}>
+				<div className="flex flex-col border-r w-1/6">
+					<button className="bg-slate-300 hover:scale-105 hover:bg-slate-400 shadow-sm py-3" onClick={() => navigate('/admin')}>
 						Produtos
 					</button>
-					<button className="bg-slate-300 hover:scale-105 hover:bg-slate-400 shadow-sm" onClick={() => navigate('/admin/orders')}>
+					<button className="bg-slate-300 hover:scale-105 hover:bg-slate-400 shadow-sm py-3" onClick={() => navigate('/admin/orders')}>
 						Compras
 					</button>
 				</div>
