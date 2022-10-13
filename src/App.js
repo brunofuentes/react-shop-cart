@@ -17,7 +17,6 @@ function App() {
 							<Route path="/" element={<Home />} />
 							<Route path="*" element={<Home />} />
 							<Route path="/basket" element={<Basket />} />
-							<Route path="/checkout" element={<OrderComplete />} />
 							<Route path="/admin" element={<Admin />} />
 							<Route path="/admin/orders" element={<OrdersList />} />
 						</Route>
