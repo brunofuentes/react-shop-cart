@@ -113,7 +113,7 @@ export function ShopProvider({ children }) {
 		localStorage.setItem('orders', JSON.stringify(orders))
 	}
 
-	const resetCart = () => {
+	const resetCartLS = () => {
 		localStorage.removeItem('cartItems')
 	}
 
@@ -136,7 +136,7 @@ export function ShopProvider({ children }) {
 				updateOrders,
 				updateShopItems,
 				updateCartItems,
-				resetCart,
+				resetCartLS,
 				adminAddShopItem,
 				adminChangeName,
 				adminChangeDescription,
