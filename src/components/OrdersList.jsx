@@ -12,7 +12,7 @@ function OrdersList() {
 		<>
 			<div className="py-5">
 				<table className="table-auto border w-full mx-auto">
-					<thead>
+					<thead className="bg-slate-300">
 						<tr className="border-b">
 							<th className="border-r p-1">Nome</th>
 							<th className="border-r p-1">Detalhes</th>
