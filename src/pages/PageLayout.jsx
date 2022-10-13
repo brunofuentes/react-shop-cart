@@ -7,7 +7,7 @@ function PageLayout() {
 	return (
 		<>
 			<Navbar />
-			<section className="flex">
+			<section className="flex mx-auto">
 				<Sidebar />
 				<Outlet />
 			</section>
