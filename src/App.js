@@ -6,7 +6,6 @@ import PageLayout from './pages/PageLayout'
 import { ShopProvider } from './context/ShopContext'
 import Admin from './pages/Admin'
 import OrdersList from './pages/OrdersList'
-import OrderComplete from './pages/OrderComplete'
 
 function App() {
 	return (
