@@ -10,8 +10,8 @@ function OrdersList() {
 
 	return (
 		<>
-			<div className="p-3">
-				<table className="table-auto border">
+			<div className="py-5">
+				<table className="table-auto border w-full mx-auto">
 					<thead>
 						<tr className="border-b">
 							<th className="border-r p-1">Nome</th>
@@ -21,9 +21,9 @@ function OrdersList() {
 					</thead>
 					<tbody>
 						{orders.map((order, index) => (
-							<tr key={index} className="border-b">
-								<td className="border-r">{order.orderName}</td>
-								<td className="border-r">
+							<tr key={index} className="border-b odd:bg-gray-50">
+								<td className="border-r px-3 py-1">{order.orderName}</td>
+								<td className="border-r px-3 py-1">
 									<small>
 										Items:
 										<ul>
@@ -35,7 +35,9 @@ function OrdersList() {
 										</ul>
 									</small>
 								</td>
-								<td className="border-r">R$ {order.totalPrice}</td>
+								<td className="border-r px-3 py-1" width="10%">
+									R$ {order.totalPrice}
+								</td>
 							</tr>
 						))}
 					</tbody>
