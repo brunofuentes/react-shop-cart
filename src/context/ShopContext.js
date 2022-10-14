@@ -1,4 +1,5 @@
-import { createContext, useState } from 'react'
+import { createContext, useEffect, useMemo, useRef, useState } from 'react'
+import useLocalStorage from '../hooks/useLocalStorage'
 
 const ShopContext = createContext()
 
@@ -11,16 +12,19 @@ export function ShopProvider({ children }) {
 		{ id: 3, name: 'camera z', description: 'uma baita camera z', price: 700, qty: 1 },
 	]
 
-	const [shopItems, setShopItems] = useState(shopItemsLS)
+	const [shopItems, setShopItems] = useLocalStorage('shopItems', shopItemsLS)
+	const [cartItems, setCartItems] = useLocalStorage('cartItems', cartItemsLS)
+	const [orders, setOrders] = useLocalStorage('orders', ordersLS)
+
 	const [keyword, setKeyword] = useState('')
-	const [cartItems, setCartItems] = useState(cartItemsLS)
-	const [orderName, setOrderName] = useState()
-	const [orders, setOrders] = useState(ordersLS)
+	const [orderName, setOrderName] = useState(null)
 
 	const filteredShopItems = (input) => {
 		if (input) {
 			const filtered = shopItems.filter(
-				(item) => item.name.toLowerCase().includes(input.toLowerCase()) || item.description.toLowerCase().includes(input.toLowerCase())
+				(item) =>
+					item.name.toLowerCase().includes(input.toLowerCase()) ||
+					item.description.toLowerCase().includes(input.toLowerCase())
 			)
 			return filtered
 		} else {
@@ -31,7 +35,9 @@ export function ShopProvider({ children }) {
 	const addItemToCart = (item) => {
 		const exist = cartItems.find((product) => product.id === item.id)
 		if (exist) {
-			setCartItems(cartItems.map((product) => (product.id === item.id ? { ...exist, qty: exist.qty + item.qty } : product)))
+			setCartItems(
+				cartItems.map((product) => (product.id === item.id ? { ...exist, qty: exist.qty + item.qty } : product))
+			)
 		} else {
 			setCartItems([...cartItems, { ...item, qty: item.qty }])
 		}
@@ -98,7 +104,9 @@ export function ShopProvider({ children }) {
 	const adminChangeDescription = (item, newDescription) => {
 		let itemToChange = shopItems.find((x) => x.id === item.id)
 		if (itemToChange) {
-			setShopItems(shopItems.map((x) => (x.id === item.id ? { ...itemToChange, description: newDescription } : x)))
+			setShopItems(
+				shopItems.map((x) => (x.id === item.id ? { ...itemToChange, description: newDescription } : x))
+			)
 		}
 	}
 
@@ -113,45 +121,31 @@ export function ShopProvider({ children }) {
 		setShopItems(shopItems.filter((x) => x.id !== item.id))
 	}
 
-	const updateShopItems = () => {
-		localStorage.setItem('shopItems', JSON.stringify(shopItems))
-	}
+	const trackOrder = useRef(orders.length)
 
-	const updateCartItems = () => {
-		localStorage.setItem('cartItems', JSON.stringify(cartItems))
-	}
-
-	const updateOrders = () => {
-		localStorage.setItem('orders', JSON.stringify(orders))
-	}
-
-	const resetCartLS = () => {
-		localStorage.removeItem('cartItems')
-	}
+	useMemo(() => {
+		if (orders.length > trackOrder.current) {
+			setCartItems([])
+			console.log('resetted CartLS')
+		}
+	}, [orders])
 
 	return (
 		<ShopContext.Provider
 			value={{
 				filteredShopItems,
 				shopItems,
-				setShopItems,
 				keyword,
 				setKeyword,
 				addItemToCart,
 				removeCartItem,
 				changeShopItemQty,
 				cartItems,
-				setCartItems,
 				changeCartItemQty,
 				cartTotalPrice,
 				checkOut,
 				setOrderName,
 				orders,
-				setOrders,
-				updateOrders,
-				updateShopItems,
-				updateCartItems,
-				resetCartLS,
 				adminAddShopItem,
 				adminChangeName,
 				adminChangeDescription,
