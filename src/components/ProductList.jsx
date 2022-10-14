@@ -21,7 +21,7 @@ function ProductList() {
 				</thead>
 				<tbody>
 					{filteredShopItems(keyword).map((item, index) => (
-						<tr key={item} className="border-b odd:bg-gray-50">
+						<tr key={item.id} className="border-b odd:bg-gray-50">
 							<td className="border-r px-3 py-1">{item.name}</td>
 							<td className="border-r px-3 py-1">{item.description}</td>
 							<td className="border-r px-3 py-1 text-center">R${item.price}</td>

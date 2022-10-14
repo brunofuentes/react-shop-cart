@@ -21,14 +21,14 @@ function OrdersList() {
 					</thead>
 					<tbody>
 						{orders.map((order, index) => (
-							<tr key={order} className="border-b odd:bg-gray-50">
+							<tr key={order.orderId} className="border-b odd:bg-gray-50">
 								<td className="border-r px-3 py-1">{order.orderName}</td>
 								<td className="border-r px-3 py-1">
 									<small>
 										Items:
 										<ul>
 											{order.items.map((item, index) => (
-												<li key={item}>
+												<li key={item.orderId}>
 													- {item.name}, {item.qty} un.
 												</li>
 											))}

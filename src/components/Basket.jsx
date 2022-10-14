@@ -51,7 +51,7 @@ function Basket() {
 					</thead>
 					<tbody>
 						{cartItems.map((item, index) => (
-							<tr key={item} className="border-b odd:bg-gray-50">
+							<tr key={item.id} className="border-b odd:bg-gray-50">
 								<td className="border-r px-3 py-1">
 									<div className="rounded border p-1">
 										<input
