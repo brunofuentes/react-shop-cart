@@ -1,12 +1,8 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import ShopContext from '../context/ShopContext'
 
 function OrdersList() {
-	const { orders, updateOrders } = useContext(ShopContext)
-
-	useEffect(() => {
-		updateOrders()
-	})
+	const { orders } = useContext(ShopContext)
 
 	return (
 		<>

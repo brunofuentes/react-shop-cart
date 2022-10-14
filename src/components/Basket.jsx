@@ -1,36 +1,19 @@
-import React, { useContext, useEffect, useRef } from 'react'
+import React, { useContext } from 'react'
 import ShopContext from '../context/ShopContext'
 
 function Basket() {
-	const {
-		setOrderName,
-		setCartItems,
-		checkOut,
-		cartItems,
-		changeCartItemQty,
-		cartTotalPrice,
-		orders,
-		removeCartItem,
-		updateCartItems,
-		updateOrders,
-		resetCartLS,
-	} = useContext(ShopContext)
-	const trackOrder = useRef(orders.length)
-
-	useEffect(() => {
-		if (orders.length > trackOrder.current) {
-			updateOrders()
-			setCartItems([])
-			resetCartLS()
-		} else {
-			updateCartItems()
-		}
-	})
+	const { setOrderName, checkOut, cartItems, changeCartItemQty, cartTotalPrice, removeCartItem } =
+		useContext(ShopContext)
 
 	return (
 		<div className="py-5">
 			<div className="border rounded">
-				<input className="p-1 w-full" type="text" placeholder="Nome da Cesta" onChange={(e) => setOrderName(e.target.value)} />
+				<input
+					className="p-1 w-full"
+					type="text"
+					placeholder="Nome da Cesta"
+					onChange={(e) => setOrderName(e.target.value)}
+				/>
 			</div>
 			<div className="pt-5 pb-3">
 				<table className="table-auto border w-full mx-auto">
@@ -68,7 +51,12 @@ function Basket() {
 								<td className="border-r text-center py-1 px-3">R${item.price * item.qty}</td>
 								<td className="px-3 py-1 text-center hover:bg-red-500" width="5%">
 									<button onClick={() => removeCartItem(item)}>
-										<img width={16} height={16} src="/images/icons/delete_icon.svg" alt="Remove Item" />
+										<img
+											width={16}
+											height={16}
+											src="/images/icons/delete_icon.svg"
+											alt="Remove Item"
+										/>
 									</button>
 								</td>
 							</tr>
