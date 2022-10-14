@@ -19,7 +19,7 @@ function PageLayout() {
 				</span>
 			</nav>
 			<section className="flex mx-auto">
-				<div className="flex flex-col flex-1 border-r w-1/6">
+				<div className="flex flex-col border-r w-1/6">
 					<button className="bg-slate-300 hover:scale-105 hover:bg-slate-400 shadow-sm py-3" onClick={() => navigate('/')}>
 						Home
 					</button>
