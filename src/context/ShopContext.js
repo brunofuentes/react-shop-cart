@@ -91,7 +91,7 @@ export function ShopProvider({ children }) {
 	}
 
 	const adminAddShopItem = (item) => {
-		setShopItems([...shopItems, { ...item, qty: 1, id: shopItems[shopItems.length - 1] + 1 }])
+		setShopItems([...shopItems, { ...item, qty: 1, id: shopItems.length + 1 }])
 	}
 
 	const adminChangeName = (item, newName) => {
@@ -126,7 +126,6 @@ export function ShopProvider({ children }) {
 	useMemo(() => {
 		if (orders.length > trackOrder.current) {
 			setCartItems([])
-			console.log('resetted CartLS')
 		}
 	}, [orders])
 
