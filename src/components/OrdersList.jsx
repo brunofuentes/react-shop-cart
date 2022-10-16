@@ -22,13 +22,11 @@ function OrdersList() {
 								<td className="border-r px-3 py-1">
 									<small>
 										Items:
-										<ul>
-											{order.items.map((item, index) => (
-												<li key={item.orderId}>
-													- {item.name}, {item.qty} un.
-												</li>
-											))}
-										</ul>
+										{order.items.map((item, index) => (
+											<li key={item.id}>
+												{item.name}, {item.qty} un.
+											</li>
+										))}
 									</small>
 								</td>
 								<td className="border-r px-3 py-1" width="10%">
