@@ -1,8 +1,8 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import { ShopProvider } from '../../context/ShopContext'
-import Home from '../../pages/Home'
-import PageLayout from '../PageLayout'
+import Home from '../Home'
+import PageLayout from '../../components/PageLayout'
 
 test('add one product to cart', () => {
 	const route = '/'

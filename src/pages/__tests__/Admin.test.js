@@ -2,10 +2,10 @@ import { fireEvent, render, screen } from '@testing-library/react'
 import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import { ShopProvider } from '../../context/ShopContext'
 import { act } from 'react-test-renderer'
-import Admin from '../../pages/Admin'
-import Home from '../../pages/Home'
-import PageLayout from '../PageLayout'
-import PageLayoutAdmin from '../PageLayoutAdmin'
+import Admin from '../Admin'
+import Home from '../Home'
+import PageLayout from '../../components/PageLayout'
+import PageLayoutAdmin from '../../components/PageLayoutAdmin'
 
 test('render Homepage before tests to populate localStorage', () => {
 	global.localStorage.clear()

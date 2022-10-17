@@ -1,12 +1,12 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import { ShopProvider } from '../../context/ShopContext'
-import Admin from '../../pages/Admin'
-import AdminOrders from '../../pages/AdminOrders'
-import Home from '../../pages/Home'
-import MyCart from '../../pages/MyCart'
-import PageLayout from '../PageLayout'
-import PageLayoutAdmin from '../PageLayoutAdmin'
+import Admin from '../Admin'
+import AdminOrders from '../AdminOrders'
+import Home from '../Home'
+import MyCart from '../MyCart'
+import PageLayout from '../../components/PageLayout'
+import PageLayoutAdmin from '../../components/PageLayoutAdmin'
 
 test('add an order', () => {
 	global.localStorage.clear()
