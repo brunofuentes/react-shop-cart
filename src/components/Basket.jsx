@@ -15,7 +15,7 @@ function Basket() {
 					onChange={(e) => setOrderName(e.target.value)}
 				/>
 			</div>
-			<div className="pt-5 pb-3">
+			<div className="relative pt-5 pb-3">
 				<table className="table-auto border w-full mx-auto">
 					<thead className="bg-slate-300">
 						<tr className="border-b">
@@ -49,7 +49,7 @@ function Basket() {
 								<td className="border-r px-3 py-1">{item.name}</td>
 								<td className="border-r px-3 py-1">{item.description}</td>
 								<td className="border-r text-center py-1 px-3">R${item.price * item.qty}</td>
-								<td className="px-3 py-1 text-center hover:bg-red-500" width="5%">
+								<td className="text-center hover:bg-red-500" width="5%">
 									<button onClick={() => removeCartItem(item)}>
 										<img
 											width={16}

@@ -5,7 +5,7 @@ import SearchProduct from '../components/SearchProduct'
 function Home() {
 	return (
 		<div className="flex flex-grow flex-col px-8 py-3">
-			<div className="flex justify-between items-center">
+			<div className="flex flex-col sm:flex-row justify-between items-center">
 				<span>Home</span>
 				<SearchProduct />
 			</div>

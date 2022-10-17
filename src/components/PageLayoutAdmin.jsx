@@ -16,12 +16,18 @@ function PageLayoutAdmin() {
 					<img width={25} height={25} src="/images/icons/bars_icon.svg" alt="Menu" />
 				</span>
 			</nav>
-			<section className="flex mx-auto">
-				<div className="flex flex-col border-r w-1/6">
-					<button className="bg-slate-300 hover:scale-105 hover:bg-slate-400 shadow-sm py-3" onClick={() => navigate('/admin')}>
+			<section className="flex mx-auto sm:min-h-[93vh] flex-col sm:flex-row">
+				<div className="flex flex-col border-r sm:w-1/6 ">
+					<button
+						className="bg-slate-300 border-b hover:scale-105 hover:bg-slate-400 shadow-sm py-3"
+						onClick={() => navigate('/admin')}
+					>
 						Produtos
 					</button>
-					<button className="bg-slate-300 hover:scale-105 hover:bg-slate-400 shadow-sm py-3" onClick={() => navigate('/admin/orders')}>
+					<button
+						className="bg-slate-300 hover:scale-105 hover:bg-slate-400 shadow-sm py-3"
+						onClick={() => navigate('/admin/orders')}
+					>
 						Compras
 					</button>
 				</div>
