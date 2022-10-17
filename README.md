@@ -1,7 +1,8 @@
 # Carrinho de Compras (Front-end)
 
-APP URL: https://react-shop-cart-xi.vercel.app/
-Admin URL: https://react-shop-cart-xi.vercel.app/admin
+APP: https://react-shop-cart-xi.vercel.app/
+
+Admin: https://react-shop-cart-xi.vercel.app/admin
 
 ## Introdução
 
@@ -29,13 +30,13 @@ Este projeto armazena os dados apenas no navegador para executar suas funções.
 npm install
 ```
 
-3. Para rodar o projeto (modo de desenvolvimento):
+3. Para rodar o projeto (modo de desenvolvimento)
 
 ```
 npm start
 ```
 
-4. Para rodar o projeto (modo de produção):
+4. Para rodar o projeto (modo de produção)
 
 ```
 npm run build
@@ -43,7 +44,7 @@ npm run build
 
 5. Acesse a aplicação pelo navegador em: [http://localhost:3000](http://localhost:3000)
 
-Testes:
+Testes
 
 ```
 npm test
