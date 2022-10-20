@@ -1,4 +1,4 @@
-import { createContext, useEffect, useMemo, useRef, useState } from 'react'
+import { createContext, useMemo, useRef, useState } from 'react'
 import useLocalStorage from '../hooks/useLocalStorage'
 
 const ShopContext = createContext()
@@ -19,18 +19,14 @@ export function ShopProvider({ children }) {
 	const [keyword, setKeyword] = useState('')
 	const [orderName, setOrderName] = useState(null)
 
-	const filteredShopItems = (input) => {
-		if (input) {
-			const filtered = shopItems.filter(
-				(item) =>
-					item.name.toLowerCase().includes(input.toLowerCase()) ||
-					item.description.toLowerCase().includes(input.toLowerCase())
-			)
-			return filtered
-		} else {
-			return shopItems
-		}
-	}
+	const filteredShopItems = useMemo(() => {
+		const filtered = shopItems.filter(
+			(item) =>
+				item.name.toLowerCase().includes(keyword.toLowerCase()) ||
+				item.description.toLowerCase().includes(keyword.toLowerCase())
+		)
+		return filtered
+	}, [shopItems, keyword])
 
 	const addItemToCart = (item) => {
 		const exist = cartItems.find((product) => product.id === item.id)

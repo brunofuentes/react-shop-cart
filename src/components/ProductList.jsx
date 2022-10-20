@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import ShopContext from '../context/ShopContext'
 
 function ProductList() {
-	const { addItemToCart, changeShopItemQty, filteredShopItems, keyword } = useContext(ShopContext)
+	const { addItemToCart, changeShopItemQty, filteredShopItems } = useContext(ShopContext)
 
 	return (
 		<div className="py-5">
@@ -21,7 +21,7 @@ function ProductList() {
 						</tr>
 					</thead>
 					<tbody>
-						{filteredShopItems(keyword).map((item, index) => (
+						{filteredShopItems.map((item, index) => (
 							<tr key={item.id} className="border-b odd:bg-gray-50">
 								<td className="border-r px-3 py-1">{item.name}</td>
 								<td className="border-r px-3 py-1" width="50%">
