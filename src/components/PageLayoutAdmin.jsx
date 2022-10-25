@@ -1,5 +1,5 @@
 import React from 'react'
-import { Outlet, useNavigate } from 'react-router-dom'
+import { Link, Outlet, useNavigate } from 'react-router-dom'
 
 function PageLayoutAdmin() {
 	const navigate = useNavigate()
@@ -7,10 +7,10 @@ function PageLayoutAdmin() {
 	return (
 		<>
 			<nav className="flex justify-between border-b p-3 bg-yellow-300">
-				<a className="flex hover:scale-105" href="/">
+				<Link className="flex hover:scale-105" to="/">
 					<img src="/images/icons/shop_cart_icon.svg" width={20} height={20} alt="" />
 					<span className="pl-2 font-bold">S-Shop</span>
-				</a>
+				</Link>
 				<span className="text-red-600 font-bold">Página de Administração</span>
 				<span>
 					<img width={25} height={25} src="/images/icons/bars_icon.svg" alt="Menu" />

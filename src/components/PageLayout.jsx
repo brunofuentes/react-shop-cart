@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Outlet, useNavigate } from 'react-router-dom'
+import { Link, Outlet, useNavigate } from 'react-router-dom'
 import ShopContext from '../context/ShopContext'
 
 function PageLayout() {
@@ -10,10 +10,10 @@ function PageLayout() {
 	return (
 		<div className="min-h-screen">
 			<nav className="flex justify-between border-b p-3">
-				<a className="flex hover:scale-105" href="/">
+				<Link className="flex hover:scale-105" to="/">
 					<img src="/images/icons/shop_cart_icon.svg" width={20} height={20} alt="" />
 					<span className="pl-2 font-bold">S-Shop</span>
-				</a>
+				</Link>
 				<span>
 					<img width={25} height={25} src="/images/icons/bars_icon.svg" alt="Menu" />
 				</span>
